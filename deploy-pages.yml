@@ -1,0 +1,56 @@
+# 这个文件让 GitHub 自动帮你打包并发布网站。
+# 你只要把代码传上来（GitHub Desktop 点一下 Push），剩下它自己做，大约 1 分钟。
+#
+# 放置方式（重要）：
+#   A. 推荐：把本文件复制到  .github/workflows/deploy-pages.yml
+#      （即在项目里建 .github / workflows 两层文件夹，文件名 deploy-pages.yml）
+#   B. 也可以就放在项目根目录，名字保持 deploy-pages.yml，GitHub 同样会识别。
+name: 发布到 GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:        # 也可以在网页上手动点一下触发
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出代码
+        uses: actions/checkout@v4
+
+      - name: 准备 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 打包（自动带上仓库名的路径）
+        run: npm run pages
+
+      - name: 交给 GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages-dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 发布
+        id: deployment
+        uses: actions/deploy-pages@v4

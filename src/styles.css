@@ -1,0 +1,565 @@
+/* ── 字体：英文衬线用系统自带优雅衬线体；中文大标题用宋体（仪式感），界面小字用黑体（清晰） ── */
+:root {
+  --gold: #d9be85;
+  --gold-bright: #f0dba6;
+  --paper: #f2eadc;
+  --ink: #15120e;
+  --black: #050507;
+  /* Bodoni 72 是 macOS 自带的时装杂志体，放在最前面，保证“Yuki Chu”一定漂亮；
+     万一换到没有它的机器，就依次退到 Didot / Baskerville / 网页字体 Playfair Display */
+  --serif-en: 'Bodoni 72', 'Bodoni 72 Oldstyle', Didot, Baskerville, 'Playfair Display', 'Iowan Old Style', 'Times New Roman', Georgia, serif;
+  --serif-cn: 'Songti SC', STSong, 'Songti TC', 'Noto Serif CJK SC', serif;
+  --sans-cn: 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Monaco, monospace;
+  color: #ebe8df;
+  background: var(--black);
+  font-family: var(--sans-cn);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  --px: 0px;
+  --py: 0px;
+}
+
+*{box-sizing:border-box} body{margin:0;overflow:hidden;background:#06080d}button,input{font:inherit}button{color:inherit;cursor:pointer}.film{height:100svh;min-height:600px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 48% 38%,#141c2c 0%,#090e18 34%,#050609 76%)}.vignette,.grain,.stars{position:absolute;inset:0;pointer-events:none}.vignette{z-index:2;background:radial-gradient(ellipse,transparent 28%,rgba(0,0,0,.45) 100%)}.grain{z-index:3;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#f8efd9;opacity:var(--opacity);animation:twinkle 5s ease-in-out infinite;animation-delay:var(--delay);box-shadow:0 0 8px 1px rgba(216,190,133,.3)}@keyframes twinkle{50%{opacity:.85;transform:scale(1.5)}}header,.chapter,.sound{position:absolute;z-index:5;font:10px/1.2 ui-monospace,monospace;letter-spacing:.14em;color:#bdb9af}header{top:30px;left:35px;right:35px;display:flex;justify-content:space-between}.chapter{left:35px;bottom:28px;color:var(--gold)}.sound{right:35px;bottom:24px;border:0;background:none;font-size:9px}.opening,section{position:relative;z-index:4;height:100%;display:grid;place-content:center;text-align:center;padding:7rem 1.5rem}.opening{cursor:pointer}.typed{font-size:clamp(18px,2.2vw,29px);letter-spacing:.09em;margin:0;animation:rise .8s both}.typed b{display:inline-block;width:1px;height:1.1em;background:var(--gold);margin-left:8px;vertical-align:-.18em;animation:blink .8s infinite}.opening small{font:11px ui-monospace,monospace;letter-spacing:.12em;color:#c3b491;margin-top:25px;animation:rise 1s .5s both}.enter{position:absolute;bottom:8vh;left:50%;transform:translateX(-50%);border:0;background:transparent;font:10px ui-monospace,monospace;letter-spacing:.25em;opacity:.55}.enter em{font-style:normal;color:var(--gold);padding-left:6px}@keyframes blink{50%{opacity:0}}@keyframes rise{from{opacity:0;filter:blur(5px);transform:translateY(8px)}to{opacity:1;filter:blur(0);transform:none}}.archive{text-align:left;place-content:center;transform:translate(var(--px),var(--py));transition:transform 1.5s ease}.eyebrow{font:10px ui-monospace,monospace;letter-spacing:.22em;color:var(--gold);margin:0 0 19px}.archive h1{font-weight:400;font-size:clamp(64px,11vw,146px);line-height:.9;letter-spacing:-.08em;margin:0}.archive h1 i{font-style:italic;font-weight:400;color:#d8c69e}.intro{font-size:15px;color:#bbb8b0;margin:28px 0 42px}.quiet-button,.text-button{border:0;background:transparent;font-size:12px;letter-spacing:.08em;padding:10px 0;transition:color .3s}.quiet-button{border-bottom:1px solid rgba(217,190,133,.7);color:#e6d5ab}.quiet-button span{margin-left:13px}.text-button{color:#c7c3ba;margin-left:24px}.text-button:hover,.quiet-button:hover{color:#fff}.memory{grid-template-columns:minmax(260px,390px) minmax(430px,700px);gap:7vw;text-align:left;align-items:center;max-width:1280px;margin:auto}.memory h2,.wish h2,.heart-scene h2{font-size:clamp(30px,3.6vw,52px);line-height:1.25;font-weight:400;letter-spacing:-.04em;margin:0 0 22px}.memory-copy>p:not(.eyebrow),.heart-scene>p{color:#aaa9a6;font-size:13px;line-height:2}.actions{margin-top:25px}.memory input{width:180px;accent-color:#c9aa6a;margin-top:28px}.card-stage{height:min(65vw,590px);width:min(65vw,620px);position:relative;margin:auto;transition:all 1.3s cubic-bezier(.2,.7,.2,1)}.card{position:absolute;width:145px;height:184px;padding:9px 10px;background:rgba(18,22,30,.72);border:1px solid rgba(217,190,133,.37);box-shadow:0 15px 40px #0008;backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:flex-end;gap:6px;transition:all 1.4s cubic-bezier(.2,.7,.2,1);transform:rotate(calc((var(--i) - 3) * 5deg));animation:float 7s ease-in-out infinite}.card:nth-child(2n){animation-delay:-3s}.card strong{font-size:11px;font-weight:500}.card small{font:7px ui-monospace,monospace;color:#a69e91}.art{position:absolute;inset:9px 9px 49px;opacity:.72}.art-0{background:radial-gradient(circle at 72% 35%,#e4bc7f 0 2%,transparent 3%),linear-gradient(140deg,#142333,#865e51)}.art-1{background:radial-gradient(ellipse at 50% 100%,#ddbc75,transparent 50%),linear-gradient(150deg,#182333,#463b55)}.art-2{background:linear-gradient(145deg,#35363d,#a17854 48%,#0d1a27)}.art-3{background:radial-gradient(circle at 35% 45%,#ac8754,transparent 20%),#182433}.spread .card:nth-child(1){left:3%;top:10%}.spread .card:nth-child(2){left:35%;top:0}.spread .card:nth-child(3){left:67%;top:14%}.spread .card:nth-child(4){left:9%;top:52%}.spread .card:nth-child(5){left:43%;top:39%}.spread .card:nth-child(6){left:72%;top:50%}.spread .card:nth-child(7){left:26%;top:70%}.spread .card:nth-child(8){left:59%;top:73%}.gathered .card{width:100px;height:116px;transform:rotate(0);animation:none}.gathered .card:nth-child(1){left:28%;top:49%}.gathered .card:nth-child(2){left:43%;top:49%}.gathered .card:nth-child(3){left:58%;top:49%}.gathered .card:nth-child(4){left:35%;top:29%}.gathered .card:nth-child(5){left:50%;top:29%}.gathered .card:nth-child(6){left:42%;top:10%}.gathered .card:nth-child(7){left:34%;top:67%}.gathered .card:nth-child(8){left:52%;top:67%}@keyframes float{50%{transform:translateY(-12px) rotate(calc((var(--i) - 3) * 5deg))}}.cake-shape,.single-cake{position:absolute;inset:0;pointer-events:none}.cake-tier{position:absolute;border-radius:50% 50% 10px 10px;background:linear-gradient(90deg,#a57a4d,#efd18e,#936b46);box-shadow:0 12px 28px #0008}.cake-shape .t1{width:250px;height:78px;left:calc(50% - 125px);top:67%}.cake-shape .t2{width:180px;height:60px;left:calc(50% - 90px);top:57%}.cake-shape .candle{left:calc(50% - 4px);top:46%}.cake-shape span,.single-cake span{position:absolute;color:#2d241d;font:11px ui-monospace,monospace;letter-spacing:.2em}.cake-shape span{top:69%;left:calc(50% - 25px)}.candle{position:absolute;width:8px;height:65px;background:repeating-linear-gradient(150deg,#e8c77c 0 5px,#936743 5px 9px);border-radius:4px}.flame{position:absolute;width:18px;height:30px;background:radial-gradient(ellipse at 50% 70%,#fff4c9 0 20%,#e8a94c 34%,#bf5d27 67%,transparent 70%);border-radius:50% 50% 50% 50%;filter:blur(.25px);animation:flicker .8s infinite alternate;transform-origin:center bottom}.cake-shape .flame{top:41%;left:calc(50% - 9px)}@keyframes flicker{to{transform:rotate(5deg) scale(.83,1.15);filter:brightness(1.2)}}.camera{position:absolute;bottom:0;right:0;width:92px;opacity:.45;filter:grayscale(1);border:1px solid #b99b62}.note{position:absolute;z-index:8;bottom:55px;left:50%;translate:-50%;font-size:11px;color:#bfb7a6;white-space:nowrap}.proceed{position:absolute;z-index:8;right:8vw;top:50%;border:0;background:transparent;color:#dbc58d;letter-spacing:.1em}.wish{text-align:center}.wish h2{max-width:600px;font-size:clamp(24px,3vw,40px)}.single-cake{position:relative;inset:auto;width:240px;height:200px;margin:0 auto 20px}.single-cake .t1{width:230px;height:70px;bottom:10px;left:5px}.single-cake .t2{width:160px;height:55px;bottom:65px;left:40px}.single-cake .candle{left:116px;bottom:114px}.single-cake .flame{left:111px;bottom:171px}.single-cake .flame.out{opacity:0;transform:translateY(-20px);transition:.8s}.smoke{position:absolute;left:112px;bottom:172px;width:18px;height:80px;border-left:2px solid transparent;border-radius:50%;opacity:0}.flame.out+.smoke{opacity:.7;border-color:#a9a5a0;animation:smoke 2s ease-out}@keyframes smoke{to{transform:translate(25px,-55px) rotate(18deg);opacity:0}}.single-cake span{bottom:31px;left:91px}.heart-scene{align-content:center}.heart-scene h2{margin-bottom:15px}.constellation{width:min(78vw,420px);height:350px;position:relative;margin:25px auto;cursor:pointer}.constellation svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#dabe83;stroke-width:1.3;stroke-dasharray:700;stroke-dashoffset:700;transition:stroke-dashoffset 2.5s ease;filter:drop-shadow(0 0 8px #dabe8399)}.constellation svg .complete{stroke-dashoffset:0}.node{position:absolute;width:10px;height:10px;border-radius:50%;border:0;background:#75654a;box-shadow:0 0 9px #d7b66a;z-index:1}.node.active{background:#fff0ba;transform:scale(1.35)}.n0{left:19%;top:24%}.n1{left:40%;top:12%}.n2{left:50%;top:29%}.n3{left:61%;top:12%}.n4{left:81%;top:24%}.n5{left:50%;top:84%}.heart-finish{color:#e4d7b7!important;animation:rise 1.5s}.letter{align-content:center;padding-top:8vh}.letter article{width:min(650px,92vw);margin:auto;padding:clamp(28px,5vw,62px);text-align:left;background:linear-gradient(130deg,rgba(245,237,216,.1),rgba(16,19,25,.6));border:1px solid rgba(224,203,154,.3);box-shadow:0 28px 90px #0008;backdrop-filter:blur(12px)}.letter-text{white-space:pre-line;line-height:2;font-size:clamp(14px,1.5vw,17px);color:#e2ddd0}.letter footer{display:flex;flex-direction:column;gap:5px;margin-top:28px;padding-top:20px;border-top:1px solid #d6ba7c55;font-size:12px;color:#d8c18e}.letter footer i{font:10px ui-monospace,monospace;letter-spacing:.12em;color:#aaa}.letter .quiet-button{margin-top:25px}.ending p{font-size:clamp(21px,3vw,38px);letter-spacing:.1em}.y-stars{font-size:120px;color:#d7bd84;text-shadow:0 0 25px #d7bd8466;font-family:Georgia;animation:twinkle 3s infinite}.ending .text-button{margin:25px 0 0;color:#cdbb93}
+@media(max-width:700px){.film{min-height:580px}header{top:21px;left:20px;right:20px;font-size:8px}.chapter{bottom:19px;left:20px}.sound{right:20px;bottom:16px;font-size:8px}.archive{align-content:center;padding-left:12vw}.memory{grid-template-columns:1fr;gap:20px;align-content:start;padding-top:80px;overflow:auto}.memory-copy{text-align:center}.card-stage{width:94vw;height:60vh}.card{width:100px;height:130px}.gathered .card{width:73px;height:94px}.memory input{margin-top:15px}.camera{display:none}.note{bottom:47px;max-width:80vw;text-align:center;white-space:normal}.proceed{top:auto;right:50%;bottom:85px;translate:50%}.letter{padding:80px 1rem 65px;overflow:auto}.letter article{padding:28px}.opening small{font-size:9px}.text-button{margin-left:14px}.wish{padding-bottom:100px}.heart-scene{padding-top:60px}.constellation{height:300px}.cake-shape .t1{width:190px;left:calc(50% - 95px)}.cake-shape .t2{width:140px;left:calc(50% - 70px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+/* The cards themselves become the cake: nothing is hidden behind a decorative cake. */
+.gathered .card{width:116px;height:104px;padding:7px 8px;border-color:rgba(236,207,140,.65);box-shadow:0 10px 28px #0008}.gathered .card .art{inset:7px 7px 44px}.gathered .card:nth-child(1){left:16%;top:59%}.gathered .card:nth-child(2){left:31%;top:59%}.gathered .card:nth-child(3){left:46%;top:59%}.gathered .card:nth-child(4){left:61%;top:59%}.gathered .card:nth-child(5){left:24%;top:39%}.gathered .card:nth-child(6){left:39%;top:39%}.gathered .card:nth-child(7){left:54%;top:39%}.gathered .card:nth-child(8){left:39%;top:19%}.cake-shape .candle{top:5%;left:calc(50% - 4px)}.cake-shape .flame{top:0;left:calc(50% - 9px)}.cake-shape span{top:64%;left:calc(50% - 25px);z-index:2;color:#f2db9e;text-shadow:0 1px 5px #000}
+.envelope-wrap{width:min(440px,84vw);height:390px;margin:0 auto;display:grid;place-items:center;perspective:900px;touch-action:none;cursor:grab}.envelope-wrap:active{cursor:grabbing}.envelope-wrap>p{position:absolute;margin-top:350px;color:#aaa18f;font-size:11px;letter-spacing:.08em}.envelope{width:min(390px,80vw);aspect-ratio:1.48;position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx)) rotateY(var(--ry));transition:transform .12s ease;filter:drop-shadow(0 28px 30px #0009);cursor:pointer}.envelope-back{position:absolute;inset:0;border:1px solid #c8a967;background:linear-gradient(140deg,#302b2a,#736249 52%,#28272a);box-shadow:inset 0 0 45px #0008}.envelope-fold{position:absolute;inset:1px;background:linear-gradient(135deg,transparent 49.6%,#9d845c 50%,#493e34 100%);clip-path:polygon(0 0,50% 53%,0 100%);z-index:2}.fold-right{transform:scaleX(-1)}.envelope-flap{position:absolute;inset:0;z-index:3;clip-path:polygon(0 0,100% 0,50% 54%);background:linear-gradient(145deg,#a98c60,#392f2a 94%);border-top:1px solid #d7bb79;transform-origin:top;transition:transform 1.2s cubic-bezier(.2,.7,.15,1)}.seal{position:absolute;z-index:4;left:calc(50% - 20px);top:calc(52% - 20px);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#b48455;color:#291b16;font:italic 22px Georgia;box-shadow:0 2px 9px #0008}.letter.opened .envelope-flap{transform:rotateX(165deg)}.letter.opened article{animation:letterReveal 1.1s both}@keyframes letterReveal{from{opacity:0;transform:translateY(28px) scale(.97);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}.fireworks{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}.firework{position:absolute;left:var(--x);top:var(--y);width:1px;height:1px}.firework i{position:absolute;left:0;top:0;width:3px;height:3px;border-radius:50%;background:var(--c);box-shadow:0 0 8px 2px var(--c);transform:rotate(var(--a)) translateY(0);animation:firework 1.8s var(--delay) cubic-bezier(.08,.7,.2,1) both}@keyframes firework{0%{opacity:0;transform:rotate(var(--a)) translateY(0) scale(.2)}12%{opacity:1}75%{opacity:.8}100%{opacity:0;transform:rotate(var(--a)) translateY(calc(var(--l) * -1)) scale(.65)}}.ending small{font-size:11px;color:#aba797;letter-spacing:.1em;margin-top:4px}
+
+/* ══════════════════════════════════════════════════════════
+   v2 追加：字体排版 / 纸牌拼成蛋糕 / 放大立体信 / 满屏烟花 / 暗号
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 排版语气：大标题走宋体的仪式感，界面小字走黑体的清晰 ── */
+.archive h1, .memory h2, .wish h2, .heart-scene h2, .ending p {
+  font-family: var(--serif-cn);
+  font-weight: 400;
+}
+.memory p, .heart-scene p, .intro, .secret-lead, .final-sub { font-family: var(--sans-cn) }
+.chapter b, .slider-hint, .camera-wrap small, .secret-msg, .tap-hint { font-family: var(--mono) }
+
+/* ── Yuki Chu：时装杂志体 + 金属流光（补 -webkit- 前缀，Safari 才不会变透明） ── */
+.title {
+  font-family: var(--serif-en); font-weight: 400;
+  letter-spacing: .005em; line-height: .92;
+  text-rendering: geometricPrecision;
+}
+.title span { text-shadow: 0 0 60px rgba(226,199,140,.18) }
+.title i {
+  font-family: var(--serif-en); font-style: italic; font-weight: 400;
+  background: linear-gradient(100deg, #a97f38, #fff1c6 38%, #e0c07c 58%, #a97f38);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  letter-spacing: 0; padding-right: .1em; margin-left: .04em;
+  animation: glint 6s ease-in-out infinite;
+}
+@keyframes glint { 50% { filter: brightness(1.32) } }
+/* 版本标记：方便确认自己看的是不是最新版 */
+.chapter b { display: block; margin-top: 3px; font-size: 8px; font-weight: 400; letter-spacing: .12em; opacity: .55 }
+
+/* ── 纸牌 ↔ 蛋糕 ── */
+.card-stage { max-width: 100% }
+.card {
+  width: 132px; height: 168px; will-change: left, top, transform;
+  transition:
+    left 1.1s cubic-bezier(.22,.75,.18,1),
+    top 1.1s cubic-bezier(.22,.75,.18,1),
+    transform 1.1s cubic-bezier(.22,.75,.18,1),
+    opacity .5s ease, width .7s ease, height .7s ease;
+  transform: rotate(var(--tilt, 0deg)) translateY(0);
+}
+.card.is-cake {
+  width: clamp(84px, 8.4vw, 104px); height: clamp(62px, 6.6vw, 96px); padding: 6px;
+  border-color: rgba(236,207,140,.7);
+  box-shadow: 0 6px 16px #000a, inset 0 1px 0 rgba(255,240,200,.16);
+}
+.card.is-cake .art { inset: 6px 6px 40px }
+.card.is-cake strong { font-size: 10px }
+.card.is-cake small { font-size: 6px }
+
+/* 真正的蛋糕：卡片排成两层，外面加一圈奶油色围边 */
+.cake-shape { opacity: 0; transition: opacity .7s ease }
+.cake-shape.show { opacity: 1 }
+.pie-tier {
+  position: absolute;
+  border-radius: 46% 46% 9px 9px / 24% 24% 9px 9px;
+  background: linear-gradient(180deg, #f6e4b8 0%, #d9b779 16%, #ab8351 62%, #7b5a35 100%);
+  box-shadow: 0 16px 32px #000a, inset 0 -6px 0 rgba(143,101,55,.5);
+  opacity: calc(.5 - var(--sp) * .46);
+}
+.cake-shape .t2 { width: 72%; height: 82px; left: 14%; bottom: 21% }
+.cake-shape .t1 { width: 96%; height: 106px; left: 2%; bottom: 0 }
+.cake-shape span {
+  position: absolute; z-index: 3; bottom: 38%; left: 50%; transform: translateX(-50%);
+  color: #f2db9e; font: 11px var(--mono); letter-spacing: .28em; text-shadow: 0 1px 6px #000;
+}
+.cake-shape .candle { left: calc(50% - 4px); bottom: 43%; height: 62px; z-index: 3 }
+.cake-shape .flame { left: calc(50% - 9px); bottom: calc(43% + 62px); z-index: 3 }
+
+/* 散开程度滑条：真正连续，滑到哪卡片就散到哪 */
+.spread-slider { width: 190px; margin-top: 26px; accent-color: #c9aa6a; cursor: grab }
+.spread-slider:active { cursor: grabbing }
+.slider-hint { display: block; margin-top: 8px; font-size: 10px; letter-spacing: .1em; color: #9d9689 }
+
+/* ── 相机预览：大一点，手机上也保留 ── */
+.camera-wrap {
+  position: absolute; z-index: 6; right: clamp(18px, 4vw, 46px); bottom: clamp(22px, 6vh, 62px);
+  display: flex; flex-direction: column; gap: 9px; align-items: center;
+  padding: 10px 10px 12px; border: 1px solid rgba(217,190,133,.36); border-radius: 14px;
+  background: rgba(9,11,18,.62); backdrop-filter: blur(9px); box-shadow: 0 18px 46px #0008;
+}
+.camera {
+  width: clamp(150px, 17vw, 224px); aspect-ratio: 4/3; object-fit: cover;
+  border-radius: 9px; opacity: .92; filter: saturate(.85) contrast(1.02);
+  transform: scaleX(-1); /* 像照镜子一样镜像，动作更自然 */
+}
+.camera-wrap small { font-size: 9px; letter-spacing: .12em; color: var(--gold) }
+
+/* ── 立体信：做大、做出厚度、能顺畅读完 ── */
+.letter {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 20px; padding: 5.4rem clamp(16px, 4vw, 48px) 3.2rem;
+}
+.letter.opened {
+  justify-content: flex-start; gap: 16px; height: 100%;
+  overflow-y: auto; overscroll-behavior: contain; padding-bottom: 3rem;
+}
+.envelope-wrap {
+  width: min(660px, 94vw); height: auto; display: flex; flex-direction: column;
+  align-items: center; gap: 30px; perspective: 1500px; touch-action: none; cursor: grab;
+}
+.envelope-wrap > p { position: static; margin: 0; color: #aba18f; font-size: 11px; letter-spacing: .12em }
+.envelope {
+  width: min(580px, 88vw); aspect-ratio: 1.52; position: relative; transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .12s ease, opacity 1.25s ease .5s, filter .5s ease;
+  filter: drop-shadow(0 42px 48px rgba(0,0,0,.62)); cursor: pointer;
+}
+.envelope:hover { filter: drop-shadow(0 46px 54px rgba(0,0,0,.68)) brightness(1.05) }
+.letter.opened .envelope { opacity: 0; pointer-events: none }
+.letter.opened .envelope-wrap { display: none }
+.envelope-back {
+  position: absolute; inset: 0; border: 1px solid #c8a967; border-radius: 3px;
+  background: linear-gradient(140deg, #3a3230, #816e50 52%, #2b2724);
+  box-shadow: inset 0 0 70px #0009;
+}
+.envelope-liner {
+  position: absolute; inset: 0; z-index: 1; border-radius: 3px;
+  background: linear-gradient(180deg, rgba(242,234,220,.2), rgba(242,234,220,0) 62%);
+}
+.envelope-fold {
+  position: absolute; inset: 1px; z-index: 2;
+  background: linear-gradient(135deg, transparent 49.6%, #a68b60 50%, #4b4036 100%);
+  clip-path: polygon(0 0, 50% 53%, 0 100%);
+}
+.fold-right { transform: scaleX(-1) }
+.envelope-bottom {
+  position: absolute; inset: 1px; z-index: 2;
+  background: linear-gradient(0deg, #5b4c3c, transparent 62%);
+  clip-path: polygon(0 47%, 50% 100%, 100% 47%, 100% 100%, 0 100%);
+}
+.envelope-flap {
+  position: absolute; inset: 0; z-index: 3;
+  clip-path: polygon(0 0, 100% 0, 50% 54%);
+  background: linear-gradient(145deg, #bd9d6c, #3b3129 94%);
+  border-top: 1px solid #e0c68a; transform-origin: top;
+  transition: transform 1.45s cubic-bezier(.32,.74,.2,1), z-index 0s linear .62s, background .8s ease;
+}
+.letter.opened .envelope-flap {
+  transform: rotateX(176deg); z-index: 1;
+  background: linear-gradient(145deg, #7d6a4c, #2c2620);
+}
+.seal {
+  position: absolute; z-index: 4; left: calc(50% - 25px); top: calc(52% - 25px);
+  width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle at 34% 30%, #d3a06a, #a8724a 62%, #7c4d31);
+  color: #2a1b14; font: italic 26px var(--serif-en);
+  box-shadow: 0 4px 14px #0009, inset 0 -3px 8px rgba(255,220,180,.22);
+  animation: sealGlow 3.6s ease-in-out infinite;
+}
+@keyframes sealGlow {
+  50% { box-shadow: 0 4px 14px #0009, 0 0 26px rgba(224,182,120,.55), inset 0 -3px 8px rgba(255,220,180,.22) }
+}
+
+/* ── 信纸：米白纸感、行距舒展、可以滚动读完 ── */
+.letter-sheet {
+  width: min(720px, 94vw); max-height: 100%; overflow-y: auto; overscroll-behavior: contain;
+  padding: clamp(30px, 4.6vw, 68px) clamp(24px, 4.4vw, 66px);
+  border-radius: 3px; color: #2b2118; font-family: var(--serif-cn);
+  background:
+    radial-gradient(120% 90% at 12% 0%, rgba(255,255,255,.6), rgba(255,255,255,0) 60%),
+    linear-gradient(135deg, #f6efe2, #e3d6bc 58%, #d8c9ab);
+  box-shadow: 0 34px 96px rgba(0,0,0,.62), inset 0 0 0 1px rgba(120,95,60,.18);
+  animation: letterReveal 1.2s cubic-bezier(.2,.7,.2,1) both;
+}
+.letter-text p {
+  margin: 0 0 1.15em; font-size: clamp(14.5px, 1.32vw, 17px); line-height: 2.05;
+  letter-spacing: .015em; opacity: 0; animation: paraIn .95s ease forwards;
+}
+@keyframes paraIn { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+.letter-sheet footer {
+  display: flex; flex-direction: column; gap: 5px; margin-top: 32px; padding-top: 22px;
+  border-top: 1px solid rgba(120,95,60,.34); font-size: 12px; color: #5f4a2d;
+}
+.letter-sheet footer strong { font-family: var(--serif-en); font-size: 16px; font-weight: 500; font-style: italic }
+.letter-sheet footer span, .letter-sheet footer i { font-family: var(--mono); font-size: 10px; letter-spacing: .16em }
+.letter-sheet footer i { color: #7c6644 }
+.letter .quiet-button { flex: 0 0 auto }
+
+/* ── 结尾：满屏烟花 + 暗号 ── */
+.ending { overflow: hidden }
+.fireworks-canvas {
+  position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%;
+  pointer-events: none; mix-blend-mode: screen;
+}
+.ending-copy { position: relative; z-index: 5; display: grid; place-items: center; gap: 8px }
+.y-stars { font-family: var(--serif-en); font-style: italic }
+.tap-hint { font-size: 10px; letter-spacing: .14em; color: #9a958a }
+
+/* 暗号输入框 */
+.secret-panel { display: grid; gap: 14px; justify-items: center; margin-top: 26px; animation: rise 1s both }
+.secret-panel .eyebrow { margin: 0 }
+.secret-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; justify-content: center }
+.secret-row input {
+  width: min(280px, 74vw); padding: 10px 2px; border: 0;
+  border-bottom: 1px solid rgba(217,190,133,.6); background: transparent;
+  color: var(--paper); letter-spacing: .14em; font-size: 15px; text-align: center;
+  outline: none; transition: border-color .3s ease, box-shadow .3s ease;
+}
+.secret-row input::placeholder { color: rgba(200,190,170,.42); letter-spacing: .12em }
+.secret-row input:focus { border-color: var(--gold-bright); box-shadow: 0 10px 26px -14px rgba(240,219,166,.8) }
+.secret-row .quiet-button { padding: 10px 0 }
+/* 输错时才出现的一行小字（平时不显示，也不再给提示） */
+.secret-msg { font-size: 10px; letter-spacing: .1em; color: #b08f8f; min-height: 0 }
+.secret-lead { margin: 0; font-size: 12.5px; color: #b6b0a4 }
+
+/* 暗号正确：满屏 Yuki nb666 */
+.text-rain { position: absolute; inset: 0; z-index: 8; overflow: hidden; pointer-events: none; mix-blend-mode: screen }
+.text-rain span {
+  position: absolute; white-space: nowrap;
+  font-family: var(--serif-en); font-style: italic; font-weight: 600;
+  color: #fff5da; opacity: 0;
+  text-shadow: 0 0 14px rgba(255,215,140,.42), 0 0 34px rgba(255,180,90,.24);
+  transform: translate(-50%, -50%) rotate(var(--rot, 0deg));
+  animation-name: rainFall; animation-timing-function: cubic-bezier(.24,.6,.3,1);
+  animation-fill-mode: both; animation-iteration-count: 1;
+}
+.text-rain span.rain-glow {
+  color: #fff;
+  text-shadow: 0 0 12px #fff, 0 0 34px rgba(255,205,130,.85), 0 0 62px rgba(255,160,80,.45);
+}
+@keyframes rainFall {
+  0% { opacity: 0; transform: translate(-50%, -180%) rotate(var(--rot,0deg)) scale(.84) }
+  10% { opacity: var(--alpha, .85) }
+  74% { opacity: calc(var(--alpha, .85) * .85) }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--drift, 0vw)), 190%) rotate(var(--rot,0deg)) scale(1.08) }
+}
+.boom-line { font-size: 12px; letter-spacing: .3em; color: var(--gold-bright); animation: rise 1.2s both }
+
+/* 最终定格 */
+.final-line {
+  font-family: var(--serif-en); font-style: italic; font-weight: 600;
+  font-size: clamp(46px, 9vw, 124px); line-height: 1; margin: 0; letter-spacing: -.01em;
+  color: #fff6df; text-shadow: 0 0 26px rgba(255,208,130,.7), 0 0 84px rgba(255,164,76,.45);
+  animation: rise 1.4s both;
+}
+.final-sub { margin: 10px 0 0; font-size: 14px; letter-spacing: .2em; color: #cdbb93 }
+.replay { margin-top: 20px; color: #cdbb93 }
+
+/* ── 小屏（手机）适配 ── */
+@media (max-width: 700px) {
+  .card { width: 96px; height: 124px }
+  .card.is-cake { width: 72px; height: 68px; padding: 4px }
+  .card.is-cake .art { inset: 4px 4px 28px }
+  .card.is-cake strong { font-size: 8px }
+  .card.is-cake small { display: none }
+  .camera { width: 104px }
+  .camera-wrap { right: 12px; bottom: 14px; padding: 7px 7px 9px; gap: 6px }
+  .camera-wrap small { font-size: 8px }
+  .envelope { width: min(430px, 92vw) }
+  .letter-sheet { width: 96vw; padding: 26px 22px }
+  .letter-text p { font-size: 15px; line-height: 2 }
+  .secret-row { gap: 10px }
+  .final-line { font-size: clamp(40px, 16vw, 72px) }
+  .spread-slider { width: 150px }
+}
+
+/* 拖动滑条时缩短动画时间，做到真正跟手 */
+.card-stage.dragging .card {
+  transition-duration: .18s, .18s, .18s, .3s, .3s, .3s;
+}
+
+/* ── 卡片场景底部：按钮 + 状态 + 提示全在同一条栏里，绝不重叠 ── */
+.memory { padding-bottom: 12rem }
+.cake-actions {
+  position: absolute; z-index: 7; left: 50%; bottom: 3.2vh;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  padding: 13px 20px 14px; border-radius: 16px;
+  border: 1px solid rgba(217,190,133,.26);
+  background: rgba(8,10,16,.62); backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  width: max-content; max-width: min(1000px, 94vw);
+}
+.cake-main { display: flex; align-items: center; gap: clamp(12px, 2.2vw, 30px); flex-wrap: wrap; justify-content: center }
+.cake-state { font-size: 11px; letter-spacing: .1em; color: #b3ab9d }
+/* 提示文字：限宽、自动换行、居中，长句子也不会糊成一片 */
+.cake-note {
+  margin: 0; max-width: min(760px, 88vw);
+  text-align: center; font-size: 11.5px; line-height: 1.95; letter-spacing: .02em;
+  color: #d7cdb8;
+  padding-top: 9px; border-top: 1px solid rgba(217,190,133,.2);
+}
+.cake-buttons { display: flex; align-items: center; gap: clamp(10px, 2vw, 26px); flex-wrap: wrap; justify-content: center }
+.cake-buttons .quiet-button {
+  font-size: 13px; letter-spacing: .1em; padding: 9px 2px;
+  border-bottom-color: rgba(240,219,166,.85);
+}
+.cake-buttons .text-button { margin-left: 0; font-size: 12px }
+.cake-buttons .text-button:disabled { opacity: .45; cursor: default }
+.gesture-link { display: block; margin: 10px 0 0; font-size: 11px; color: #a9a29a }
+
+/* ── 彩蛋里的小照片：占画面不大，柔光相框，轻轻飘出来 ── */
+.cat-photos { position: absolute; inset: 0; z-index: 6; pointer-events: none }
+.cat-shot {
+  position: absolute; margin: 0;
+  transform: translate(-50%, -50%) scale(calc(.76 * var(--w, 1))) rotate(var(--rot, 0deg));
+  opacity: 0;
+  width: clamp(96px, 12.5vw, 160px);   /* 比之前大一圈，猫看得清 */
+  animation-name: catLand;
+  animation-duration: 24s;             /* 停留很久，几乎一直陪在旁边 */
+  animation-timing-function: cubic-bezier(.2,.8,.25,1);
+  animation-fill-mode: both;
+}
+.cat-shot img {
+  display: block; width: 100%; height: auto; border-radius: 5px;
+  border: 4px solid rgba(250,244,232,.96);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.6),
+    0 0 38px rgba(255,208,132,.26),
+    0 0 0 1px rgba(0,0,0,.35);
+}
+.cat-shot figcaption {
+  margin-top: 7px; text-align: center;
+  font-family: var(--mono); font-size: 9px; letter-spacing: .16em;
+  color: rgba(240,219,166,.9); text-shadow: 0 1px 6px #000;
+}
+@keyframes catLand {
+  0%   { opacity: 0; transform: translate(-50%, -62%) scale(calc(.64 * var(--w, 1))) rotate(calc(var(--rot, 0deg) - 7deg)) }
+  2%   { opacity: 1 }
+  93%  { opacity: 1; transform: translate(-50%, -50%) scale(calc(.78 * var(--w, 1))) rotate(var(--rot, 0deg)) }
+  99%  { opacity: .85 }
+  100% { opacity: 0; transform: translate(-50%, -56%) scale(calc(.7 * var(--w, 1))) rotate(calc(var(--rot, 0deg) + 3deg)) }
+}
+
+@media (max-width: 700px) {
+  .cake-actions { bottom: 16px; padding: 11px 14px; gap: 7px }
+  .cake-state { font-size: 10px }
+  .cake-buttons { gap: 9px }
+  .cake-buttons .quiet-button { font-size: 12px }
+  .cat-shot { width: clamp(78px, 25vw, 132px) }
+  .cat-shot img { border-width: 3px }
+}
+
+/* ══════════════════════════════════════════════════════════
+   v3：真实感星空 / 卡片可点开惊喜 / 书信轻触即开 / 许愿按钮
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 星空：Canvas 绘制，大小疏密都随机，不再是一排排整齐的点 ── */
+.starfield {
+  position: absolute; inset: 0; z-index: 1;
+  width: 100%; height: 100%; pointer-events: none;
+}
+
+/* ── 卡片：点一下就有惊喜 ── */
+button.card {
+  appearance: none; -webkit-appearance: none;
+  font: inherit; color: inherit; text-align: left;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+}
+button.card:hover, button.card:focus-visible {
+  outline: none;
+  border-color: rgba(240,219,166,.85);
+  box-shadow: 0 18px 42px #000b, 0 0 26px rgba(224,182,120,.34);
+  transform: rotate(var(--tilt, 0deg)) translateY(-8px);
+}
+button.card:active { transform: rotate(var(--tilt, 0deg)) translateY(-2px) scale(.98) }
+button.card::after {
+  content: '点开惊喜';
+  position: absolute; inset: auto 0 0 0;
+  padding: 4px 0 5px; text-align: center;
+  font: 8px var(--mono); letter-spacing: .2em;
+  color: rgba(240,219,166,.92);
+  background: linear-gradient(0deg, rgba(6,8,14,.9), rgba(6,8,14,0));
+  opacity: 0; transition: opacity .35s ease;
+}
+button.card:hover::after, button.card:focus-visible::after { opacity: 1 }
+button.card.is-cake::after { content: '点开' }
+
+/* ── 卡片场景的引导词：告诉你可以点开卡片 ── */
+.card-prompt {
+  margin: 16px 0 0; font-size: 12.5px; line-height: 1.95; color: #cfc6b4;
+  padding-left: 13px; border-left: 2px solid rgba(217,190,133,.5);
+}
+.card-prompt b { color: var(--gold-bright); font-weight: 500 }
+
+/* ── 相机预览上的实时手势提示 ── */
+.hand-read { font-size: 10px; letter-spacing: .06em }
+.hand-read.hand-open { color: #b9e6b0 }
+.hand-read.hand-fist { color: #f2cf94 }
+.hand-read.hand-unclear { color: #cfc7b6 }
+.hand-read.hand-none { color: #9d9689 }
+.hand-tip { font-size: 8.5px; letter-spacing: .1em; color: rgba(200,190,170,.6) }
+
+/* ── 卡片惊喜弹层 ── */
+.surprise-veil {
+  position: fixed; inset: 0; z-index: 60;
+  display: grid; place-items: center; padding: 5vh 5vw;
+  background: rgba(3,4,8,.66);
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+  animation: veilIn .35s ease both;
+  cursor: pointer;
+}
+.surprise-veil > *, .permission-veil > * { pointer-events: auto }
+@keyframes veilIn { from { opacity: 0 } to { opacity: 1 } }
+.surprise {
+  position: relative; cursor: default;
+  width: min(520px, 92vw);
+  padding: clamp(30px, 4.4vw, 52px) clamp(24px, 4.2vw, 54px) clamp(24px, 3.4vw, 38px);
+  text-align: left; border-radius: 4px;
+  border: 1px solid rgba(224,203,154,.36);
+  background:
+    radial-gradient(120% 90% at 12% 0%, rgba(255,255,255,.72), rgba(255,255,255,0) 58%),
+    linear-gradient(135deg, #f7f1e4, #e6dac2 60%, #dbcdb0);
+  color: #2b2118;
+  box-shadow: 0 40px 110px rgba(0,0,0,.66);
+  animation: popIn .5s cubic-bezier(.2,.8,.25,1) both;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(20px) scale(.96) }
+  to { opacity: 1; transform: none }
+}
+.surprise-close {
+  position: absolute; right: 10px; top: 8px;
+  width: 34px; height: 34px; border: 0; border-radius: 50%;
+  background: transparent; color: #6d5a3c;
+  font-size: 22px; line-height: 1; cursor: pointer;
+}
+.surprise-close:hover { background: rgba(109,90,60,.12) }
+.surprise .eyebrow { color: #9a7c43; margin-bottom: 12px }
+.surprise-card {
+  display: block; font-family: var(--serif-cn); font-weight: 400;
+  font-size: clamp(22px, 2.5vw, 30px); line-height: 1.35; color: #241b12;
+}
+.surprise-mark { display: block; margin: 16px 0 6px; color: #bd9445; font-size: 15px }
+.surprise h3 {
+  margin: 4px 0 12px; font-family: var(--serif-cn); font-weight: 400;
+  font-size: clamp(17px, 1.9vw, 22px); color: #8a6a2f; letter-spacing: .02em;
+}
+.surprise-text {
+  margin: 0; font-family: var(--serif-cn);
+  font-size: clamp(14.5px, 1.4vw, 17px); line-height: 3; color: #3a2d20;
+}
+.surprise-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  margin-top: 26px; padding-top: 16px;
+  border-top: 1px solid rgba(120,95,60,.28); flex-wrap: wrap;
+}
+.surprise-foot small { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: #7c6644 }
+.surprise-foot .quiet-button { border-bottom-color: rgba(154,124,67,.7); color: #7a5c22; font-size: 12px }
+
+/* ── 许愿场景：麦克风与吹灭按钮更醒目 ── */
+.wish-actions {
+  display: flex; justify-content: center; align-items: center;
+  gap: clamp(14px, 2.6vw, 34px); flex-wrap: wrap; margin: 22px 0 0;
+}
+.wish-actions .text-button { margin-left: 0 }
+.wish-hint {
+  display: block; margin-top: 16px; max-width: 34em;
+  font-family: var(--mono); font-size: 10.5px; line-height: 2;
+  letter-spacing: .06em; color: #9c948a;
+}
+/* 麦克风在听的时候，给按钮一点呼吸感，让人知道它在工作 */
+.wish-actions .quiet-button:first-child { animation: micBreath 2.6s ease-in-out infinite }
+@keyframes micBreath {
+  50% { border-bottom-color: rgba(240,219,166,1); color: #fff6e2; text-shadow: 0 0 14px rgba(240,219,166,.5) }
+}
+
+/* ── 书信：轻触即开 ── */
+.envelope-wrap { cursor: pointer }
+.envelope-wrap:focus-visible { outline: 2px solid rgba(240,219,166,.6); outline-offset: 16px; border-radius: 6px }
+.envelope-wrap .open-hint {
+  color: var(--gold-bright); letter-spacing: .14em;
+  animation: hintBreath 2.8s ease-in-out infinite;
+}
+@keyframes hintBreath { 50% { opacity: .55 } }
+
+@media (max-width: 700px) {
+  .surprise { padding: 28px 22px 22px }
+  .surprise-text { line-height: 2.6 }
+  .surprise-card { font-size: 21px }
+  .wish-hint { font-size: 10px }
+  .starfield { opacity: .92 }
+}
+
+/* ── 摄像头权限的“解决办法”小窗口 ── */
+.permission-veil {
+  position: fixed; inset: 0; z-index: 70;
+  display: grid; place-items: center; padding: 5vh 5vw;
+  background: rgba(3,4,8,.7);
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+  animation: veilIn .3s ease both;
+  cursor: pointer;
+}
+.permission-pop {
+  position: relative; cursor: default;
+  width: min(560px, 92vw); max-height: 84vh; overflow-y: auto;
+  padding: clamp(26px, 3.6vw, 42px) clamp(22px, 3.4vw, 44px) clamp(22px, 3vw, 34px);
+  text-align: left; border-radius: 6px;
+  border: 1px solid rgba(224,203,154,.38);
+  background: linear-gradient(140deg, rgba(22,26,36,.98), rgba(10,12,18,.98));
+  color: #ece7db;
+  box-shadow: 0 40px 110px rgba(0,0,0,.7);
+  animation: popIn .45s cubic-bezier(.2,.8,.25,1) both;
+}
+.permission-pop h3 {
+  margin: 0 0 16px; font-family: var(--serif-cn); font-weight: 400;
+  font-size: clamp(18px, 2vw, 23px); color: var(--gold-bright); letter-spacing: .02em;
+}
+.permission-pop ol { margin: 0 0 18px; padding-left: 1.35em }
+.permission-pop li { margin-bottom: 13px; font-size: 13.5px; line-height: 2.05; color: #ddd7cb }
+.permission-pop li b { color: #fff3d8; font-weight: 500 }
+.permission-foot {
+  margin: 0 0 18px; padding: 12px 14px; border-radius: 8px;
+  background: rgba(217,190,133,.09); border: 1px solid rgba(217,190,133,.2);
+  font-size: 11.5px; line-height: 1.95; color: #cfc7b6;
+}
+.permission-actions { display: flex; justify-content: flex-end }
+.permission-pop .surprise-close { color: #cfc0a0 }
+.permission-pop .surprise-close:hover { background: rgba(255,255,255,.08) }
+
+/* ── 提示条（note）改到页面顶部：底部永远只留给按钮栏，绝不会和它叠在一起 ── */
+.film .note {
+  position: absolute; z-index: 30;
+  top: 54px; bottom: auto; left: 50%; right: auto;
+  translate: -50% 0;
+  max-width: min(74ch, 88vw);
+  padding: 9px 18px; border-radius: 999px;
+  text-align: center; font-size: 11.5px; line-height: 1.85;
+  color: #ded7c9;
+  background: rgba(8,10,16,.66);
+  border: 1px solid rgba(217,190,133,.22);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 34px rgba(0,0,0,.45);
+  white-space: normal;
+}
+
+@media (max-width: 700px) {
+  .cake-actions { bottom: 12px; padding: 10px 12px 11px; max-width: 96vw }
+  .cake-state { font-size: 10px }
+  .cake-note { font-size: 10.5px; line-height: 1.85; max-width: 90vw }
+  .permission-pop { padding: 24px 18px 20px }
+  .permission-pop li { font-size: 12.5px }
+}
