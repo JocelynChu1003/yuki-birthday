@@ -41,15 +41,15 @@ export const letter = `Yuki，
 你值得所有明亮的事发生，也值得被好好爱着。`;
 
 /** 结尾彩蛋里会飘出来的小照片（放在 public/photos/ 下）。
- *  默认自动列出 cat-1 ~ cat-9，想换图就把 cat-*.jpg 换成你自己的图片名。 */
+ *  用相对路径（不带开头的斜杠），这样本地预览、Netlify、GitHub Pages 都能找到。 */
 export const catPhotos = [
-  '/photos/cat-1.jpg',
-  '/photos/cat-2.jpg',
-  '/photos/cat-3.jpg',
-  '/photos/cat-4.jpg',
-  '/photos/cat-5.jpg',
-  '/photos/cat-6.jpg',
-  '/photos/cat-7.jpg'
+  'photos/cat-1.jpg',
+  'photos/cat-2.jpg',
+  'photos/cat-3.jpg',
+  'photos/cat-4.jpg',
+  'photos/cat-5.jpg',
+  'photos/cat-6.jpg',
+  'photos/cat-7.jpg'
 ];
 
 /** 每张照片下面显示的小名字，按顺序和上面的图片一一对应（会自动循环）。 */

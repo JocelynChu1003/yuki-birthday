@@ -2,6 +2,7 @@
 node_modules/
 preview/
 pages-dist/
+netlify-dist/
 dist/
 
 # macOS 自动生成的隐藏文件

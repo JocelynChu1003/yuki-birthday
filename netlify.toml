@@ -1,0 +1,14 @@
+# Netlify 的配置：它读到这个文件就知道怎么打包你的网站
+[build]
+  command = "npm run build:netlify"
+  publish = "netlify-dist"
+
+# Vite 需要 Node 20 以上，这里固定用 22，避免 Netlify 默认版本太旧导致打包失败
+[build.environment]
+  NODE_VERSION = "22"
+
+# 这是单页应用：任何路径都回退到 index.html，避免刷新页面出现 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
